@@ -21,7 +21,6 @@
     "vue": "2.1.8"
   },
   "devDependencies": {
-    "buble-loader": "0.4.0",
     "css-loader": "0.26.1",
     "vue-loader": "10.0.2",
     "vue-template-compiler": "2.1.8",
