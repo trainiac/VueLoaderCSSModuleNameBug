@@ -12,37 +12,19 @@ module.exports = {
       path.join(rootDir, 'main.js')
     ]
   },
-  devtool: 'inline-source-map',
   output: {
     path: rootDir,
     filename: 'build.js',
     publicPath
   },
   module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          buble: {
-            objectAssign: 'Object.assign'
-          },
-          cssModules: {
-            sourceMap: true,
-            modules: true,
-            localIdentName: '[name]__[local]___[hash:base64:5]'
-          }
-        }
-      }
-    ]
+    rules: [{
+      test: /\.vue$/,
+      loader: 'vue-loader'
+    }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    })
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     hot: true,
@@ -53,8 +35,7 @@ module.exports = {
       ]
     },
     port,
-    publicPath,
-    contentBase: rootDir
+    publicPath
   }
 }
 
