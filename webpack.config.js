@@ -1,10 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const rootDir = path.join(__dirname)
-const buildPath = path.join(rootDir, 'build')
-const publicPath = '/static/'
-const indexFilename = 'index.html'
+const rootDir = __dirname
+const publicPath = '/'
 const port = 3456
 
 module.exports = {
@@ -17,34 +14,22 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   output: {
-    path: buildPath,
-    filename: '[name].build.[hash].js',
+    path: rootDir,
+    filename: 'build.js',
     publicPath
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        loader: 'buble-loader?objectAssign=Object.assign',
-        exclude: /node_modules/,
-        include: rootDir
-      },
-      {
-        test: /\.pug$/,
-        loader: 'pug-loader'
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          html: 'pug-loader',
           buble: {
             objectAssign: 'Object.assign'
           },
           cssModules: {
             sourceMap: true,
             modules: true,
-            importLoaders: true,
             localIdentName: '[name]__[local]___[hash:base64:5]'
           }
         }
@@ -52,10 +37,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: indexFilename,
-      template: 'index.pug'
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -63,29 +44,17 @@ module.exports = {
       }
     })
   ],
-  resolve: {
-    extensions: [
-      '.js',
-      '.vue',
-      '.css',
-      '.pug'
-    ],
-    modules: [
-      rootDir,
-      'node_modules'
-    ]
-  },
   devServer: {
     hot: true,
     inline: true,
     historyApiFallback:  {
       rewrites: [
-          { from: /./, to: `/static/${indexFilename}` }
+          { from: /./, to: `/index.html` }
       ]
     },
     port,
     publicPath,
-    contentBase: buildPath
+    contentBase: rootDir
   }
 }
 

@@ -1,5 +1,7 @@
-<template lang="pug">
-  div(v-bind:class='$style.bo') Hello
+<template>
+  <div v-bind:class="$style.foo">
+    Hello
+  </div>
 </template>
 
 <script>
@@ -8,8 +10,8 @@
   }
 </script>
 
-<style lang="postcss" module>
-  .bo {
+<style module>
+  .foo {
     color: red;
   }
 </style>
