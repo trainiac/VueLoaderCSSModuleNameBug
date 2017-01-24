@@ -1,0 +1,43 @@
+{
+  "name": "vue-loader-css-module-name-bug",
+  "description": "A Vue App",
+  "version": "0.1.0",
+  "author": "trainiac <adkison.adrian@gmail.com>",
+  "homepage": "https://github.com/trainiac/VueLoaderCSSModuleNameBug",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:trainiac/VueLoaderCSSModuleNameBug.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "engines": {
+    "node": "6.9.4"
+  },
+  "scripts": {
+    "develop": "NODE_ENV=development node ./server.js"
+  },
+  "dependencies": {
+    "vue": "2.1.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.5.4",
+    "buble-loader": "0.4.0",
+    "css-loader": "0.26.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.5",
+    "html-webpack-plugin": "2.26.0",
+    "postcss": "5.2.6",
+    "postcss-color-function": "2.0.1",
+    "postcss-import": "9.0.0",
+    "postcss-loader": "1.2.1",
+    "postcss-mixins": "5.4.0",
+    "postcss-scss": "0.4.0",
+    "postcss-simple-vars": "3.0.0",
+    "pug": "2.0.0-beta6",
+    "pug-loader": "2.3.0",
+    "vue-loader": "10.0.2",
+    "vue-template-compiler": "2.1.8",
+    "webpack": "2.2.0",
+    "webpack-dev-server": "2.2.0"
+  }
+}
